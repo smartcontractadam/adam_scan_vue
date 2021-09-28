@@ -1,0 +1,67 @@
+/*线形图区块*/
+.chartsStyle{
+    float: left;
+    margin: 0vh 0vh 0% 0vh;
+    height: 600px;
+    width: 100%;
+}
+.graph_ranking_area .top{
+    margin: 4.5% 0vh 0vh 3.8%;
+    float: left;
+    width: 95.5%;
+    height: 50px;
+}
+/*account数据区域*/
+.account_data_area{
+    width: 96%;
+    min-height: 600px;
+    background: white;
+}
+.el-table td, .el-table th.is-leaf {
+    border-bottom: 0px solid #EBEEF5;
+}
+/*board数据区域*/
+.board_data_area{
+    width: 100%;
+    min-height: 600px;
+    background: white;
+}
+.board_data_area .text_css{
+    font-weight: bold;
+    color: black;
+}
+.home_title_area{
+    line-height: 50px;
+    width: 53.2%;
+    float: left;
+    text-align: left;
+}
+.home_title_area span{
+    margin-left: 16px;
+    height: 30px;
+    font-weight: bold
+}
+/*天数选择按钮区域*/
+.day_button{
+    float: left;
+    width: 46.8%
+}
+.day_button div{
+    width: 33.3%;
+    float: left
+}
+.day_button button{
+    width: 100px;
+    height: 46px;
+    border-radius: 23px;
+    border-color: #001594;
+    color: #001594;
+}
+.day_button button:hover{
+    color: white;
+    background: #001594;
+}
+.day_button button:focus{
+    color: white;
+    background: #001594;
+}

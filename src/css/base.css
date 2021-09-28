@@ -1,0 +1,443 @@
+body{
+    margin: 0;
+    position:relative;
+}
+/* 斑马纹 */
+/* hover */
+.el-table--enable-row-hover .el-table__body tr:hover {
+    background-color: #ffd8dc !important;
+}
+/* 奇数行 */
+.el-table__row:nth-of-type(odd) {
+    background-color: #FAFAFA;
+}
+/* 偶数行 */
+.el-table__row:nth-of-type(even) {
+    background-color: #FFFFFF;
+}
+/*消除table尾部横线*/
+.el-table::before{
+    z-index: 0;
+}
+/*底部数据区域*/
+.all_data_area{
+    margin: 57px 0px 96px 0px;
+    width: 100%;
+    border-radius: 40px;
+    background: white;
+    position: relative;
+}
+.all_data_area .data{
+    width: 98%;
+    border: 0px;
+    margin: 1.5% 1%;
+}
+.all_data_area .head_area{
+    line-height: 50px;
+    width: 50%;
+    float: left;
+    margin-top: 26px;
+    text-align: left;
+}
+.head_search_area{
+    line-height: 50px;
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+}
+.public_label_icon{
+    width: 10px;
+    height: 28px;
+    background: #001594;
+    float: left;
+    border: 0px;
+    border-radius: 5px;
+}
+.home_label_shift{
+    margin: 10px 10px 10px 26px;
+}
+/*搜索框左侧区域*/
+.user_menu_display{
+    line-height: 50px;
+    text-align: left;
+    width: 13.4%;
+    height: 89px;
+    float: left;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0% 4% 0% 13.5%;
+}
+.user_menu_display .text_data{
+    height: 50px;
+}
+.user_menu_display .dyn_data{
+    width: max-content;
+    background: #454E69;
+    border-radius: 16px;
+    font-style: normal;
+    padding: 0px 6px;
+    color: #8D929F;
+    font-size: 16px;
+    line-height: 28px;
+    height: 28px;
+}
+.data_image_icon{
+    float: left;
+    width: 21px;
+    height: 21px;
+    margin-top: 3.5px
+}
+.data_text{
+    float: left;
+    margin-left: 4px;
+    font-weight: normal;
+}
+/*搜索框区域*/
+.search_area{
+    /*margin-bottom: 135px;*/
+    width: 100%;
+    float: left;
+}
+.input-with-select{
+    height: 80px;
+    border-radius: 10px 10px;
+}
+.width-big{
+    width: 61.6%;
+    margin: 6% 19.1% 0% 19.1%;
+}
+.width-small{
+    width: 55.7%;
+    margin: 0% 0% 0% 0%;
+}
+.input-with-select .el-input__inner{
+    height: 80px;
+    border-radius: 0px 40px 40px 0px;
+    border: 0px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.input-with-select .search_button{
+    width: 80px;
+    height: 80px;
+    border: 0px transparent;
+}
+.input-with-select .el-input-group__append{
+    border-radius: 40px;
+    border: 0px;
+}
+.input-with-select .el-input-group__prepend{
+    /*position: absolute;*/
+    width: 150px;
+    height: 80px;
+    padding: 0px 0px;
+    margin: 5px 0px;
+    border: 0px;
+    border-radius: 35px;
+    background: transparent;
+}
+<!-- home内容实现 -->
+.homeCon{
+    min-height: 436px;
+}
+
+.home_base_main{
+    width: 100%;
+    float: left;
+    min-height: 600px
+}
+
+.home_container_div .el-container{
+    width: 100%;
+}
+.el-input__suffix-inner .search_button{
+    font-size: 40px;
+    font-weight: bold;
+    /*鼠标变小手*/
+    cursor: pointer;
+    line-height: 80px;
+}
+.el-select .el-input .el-select__caret{
+    color: white;
+}
+.el-select .el-input__inner::placeholder{
+    color: white;
+}
+.select_div{
+    width: 150px;
+    height: 80px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: white;
+}
+.select_div .el-select{
+    margin: 0px 0px;
+    border: 0px;
+}
+.select_div .el-input{
+    width: 140px;
+    height: 70px;
+    margin: 5px;
+    line-height: 70px;
+    border-radius: 35px;
+    background-color: #FF6B22;
+}
+.select_button .el-input__inner{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+
+}
+.el-select .el-icon-arrow-up:before {
+    content: "\e790";
+}
+.synthetic_data{
+    text-align: center;
+    width: 100%;
+}
+.data_area{
+    width: 73%;
+    margin: 0px 13.5%;
+    float: left;
+    background: transparent;
+}
+.data_area:first-child.el-row{
+    text-align: center;
+    line-height: 200px;
+}
+.first_data{
+    margin: 0px 1.5%;
+    min-width: 22%;
+    min-height: 212px;
+    background-color: white;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 37px;
+    color: black;
+    font-weight: bold;
+    line-height: 50px;
+    font-family: "AlibabaPuHuiTiB";
+}
+.first_data .second_text{
+    height: 100px;
+    text-align: center;
+    font-size: 21px;
+    color: #999999;
+    font-family: "AlibabaPuHuiTiB";
+}
+.second_area{
+    margin-top: 28px;
+    min-width: 22%;
+    min-height: 212px;
+    background-color: white;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 21px;
+    color: black;
+    font-weight: bold;
+    line-height: 50px;
+    font-family: "AlibabaPuHuiTiB";
+}
+.second_area .second_text{
+    height: 100px;
+    text-align: center;
+    font-size: 17px;
+    color: #999999;
+    font-family: "AlibabaPuHuiTiB";
+}
+
+.graph_ranking_area{
+    margin-top: 54px;
+    width: 100%;
+    min-height: 720px;
+    text-align: center;
+    line-height: 100%;
+}
+
+.graph_area{
+    float: left;
+    width: 100%;
+    height: 720px;
+    background: white;
+    border-radius: 40px;
+}
+
+.ranking_area{
+    border: 0px;
+    float: left;
+    margin-left: 1%;
+    width: 35.1%;
+    min-height: 720px;
+    background: white;
+    border-radius: 40px;
+}
+.ranking_area .data{
+    text-align: center;
+    width: 98%;
+    margin: 10px 1%;
+    border-radius: 40px;
+    border: 0px;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+<!-- 头部实现 -->
+
+.home_head {
+    width: 100%;
+    height: 436px;
+}
+.head_size{
+    text-align: left;
+    height: 60px;
+    padding: 10px 13.5% 0px 13.5%;
+}
+.home_head .headArea {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px 30px;
+    line-height:60px;
+    /*display:block;*/
+}
+.logo_div{
+    width: 11.1%;
+    height: 60px;
+    margin-top: 10px;
+    float: left;
+}
+.brandArea {
+    height: 40px;
+    border-radius: 10px 10px;
+    float: left;
+    /*display:block;*/
+}
+.el-menu-demo{
+    width: 100%;
+    float: left;
+}
+.adamBackground {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background: #F6F6F6;
+    /*background-image:url("~@/img/home_background.png");*/
+    z-index:-1;
+    position: absolute;
+    /*-moz-background-size:100% 852px;*/
+    /*background-size:100% 852px;*/
+    /*背景图不滚动*/
+    /*background-attachment: fixed;*/
+    /*background-size:100% 100%;*/
+}
+.text_color{
+    color: #F8F8F8;
+}
+<!-- 尾部实现 -->
+.footer{
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    background: #f5f5f5;
+    border-top: 1px solid #ccc;
+
+    /*font-size: 14px;*/
+    /*color: #FEFEFE;*/
+    /* position: absolute;
+    bottom: 0; */
+}
+.footer ul{
+    padding: 0;
+    width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+.footer ul li{
+    line-height: 60px;
+    float: left;
+    color: #999;
+    list-style: none;
+}
+.footer ul li a{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+}
+/*导航栏样式*/
+.menu_style{
+    width: 63.1%;
+    height: 40px;
+    float: left;
+    margin-left: 18.7%;
+}
+.menu_div{
+    width: 20%;
+    float: left;
+    text-align: right;
+}
+.default_active{
+    width: 20%;
+    float: left;
+    text-align: right;
+}
+.default_active .el-menu-item{
+    background-color: transparent !important;
+    color: #FF6B22 !important;
+}
+.menu_div .el-menu-item:hover {
+    background-color: transparent !important;
+    color: #FF6B22 !important;
+
+}
+.menu_div .el-menu-item:focus {
+    background-color: transparent !important;
+    color: #FF6B22 !important;
+
+}
+/*尾部实现*/
+.foot_base{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+.foot_main{
+    position: absolute;
+    width: 100%;
+    height: 345px;
+    background-image: url("~@/img/foot_background.png");
+    z-index: 1;
+}
+
+.el-image__error, .el-image__inner, .el-image__placeholder {
+    width: 100%;
+    height: auto;
+}
+.footer_font_content{
+    font-size: 14px;
+    color: #FEFEFE;
+}
+.left_div{
+    margin: 79px 0px 0px 14.7%;
+    width: 18%;
+    float: left;
+}
+.content_div{
+    margin: 79px 0px 0px 6.2%;
+    width: 28.7%;
+    float: left;
+}
+.right_div{
+    margin: 79px 0px 0px 7.8%;
+    width: 24.6%;
+    float: left;
+}
+
+.myChart{
+    height:100%;
+    width:100%
+}
+.myChart:first-child{
+    width: 100%;
+}

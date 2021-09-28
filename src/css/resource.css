@@ -1,0 +1,249 @@
+.background_res{
+    width: 100%;
+    min-height: 1200px;
+    background: transparent;
+    position: relative;
+}
+.total_data_area{
+    /*由于固定位置，所以需要固定高度*/
+    height: 350px;
+    top: -10px;
+    position: relative;
+    border: 0px;
+    margin-bottom: 50px;
+}
+
+.total_data{
+    width: 100%;
+    min-height: 300px;
+    background: white;
+    border-radius: 40px;
+    top: -40px;
+}
+.total_data .line_space{
+    text-align: center;
+    min-height: 150px;
+    line-height: 65px;
+    margin: 30px 0px;
+}
+
+.word_large{
+    font-weight: bold;
+    font-size: 24px;
+}
+.word_small{
+    color: #9e9e9e;
+    font-size: 18px;
+    font-weight: bold;
+}
+.data_icon{
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+}
+
+.content_address{
+    padding: 45px 0px 10px 0px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.content_address_icon{
+    background: #D8D8D8;
+    border-radius: 16px;
+    font-style: normal;
+    padding: 0px 10px;
+    position: absolute;
+    left: 50%;
+    color: #999999;
+    font-size: 18px;
+    text-align: center;
+    line-height: 32px;
+    transform: translate(-50%,0%);
+}
+/*底部数据区域*/
+.all_data_area_resource{
+    margin: 57px 0px 96px 0px;
+    width: 100%;
+    border-radius: 40px;
+    min-height: 828px;
+    background: white;
+    position: relative;
+}
+.all_data_area_resource .data{
+    width: 98%;
+    border: 0px;
+    margin: 1.5% 1%;
+}
+.all_data_area_resource .head_area{
+    line-height: 50px;
+    width: 50%;
+    float: left;
+    margin-top: 26px;
+    text-align: left;
+}
+.head_area_two{
+    float: left;
+    line-height: 50px;
+    position: absolute;
+    top: 23px;
+    left: 17px;
+    width: 20%;
+    text-align: left;
+}
+/*饼图部分*/
+.charts_show_div{
+    width: 90%;
+    min-height: 500px;
+    margin: 0% 41px
+}
+/*饼图下方数据列表*/
+.pie_bottom_div{
+    position: absolute;
+    width: 90%;
+    height: 14px;
+    line-height: 14px;
+    float: left
+}
+.pie_bottom_title{
+    width: 25%;
+    float: left;
+    color: gray;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.pie_bottom_data{
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    float: left;
+}
+.div_area{
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.title_text{
+    line-height: 50px;
+    height: 50px;
+    font-weight: bold
+}
+.div_title{
+    float: left;
+    width: 31.5%;
+}
+/*饼图区域外侧div*/
+.pie_charts_out{
+    width: 100%;
+    min-height: 600px;
+    margin-top: 50px;
+}
+/*条形图外侧div*/
+.bar_charts_out{
+    width: 100%;
+    min-height: 600px;
+    margin-top: 50px;
+}
+/*饼图/条形图区域*/
+.charts_area{
+    width: 49%;
+    min-height: 650px;
+    background: white;
+    border-radius: 40px;
+    float: left;
+    position: relative;
+}
+.pie_left{
+    margin: 0% 1% 41px 0%;
+}
+.pie_right{
+    margin: 0% 0% 41px 1%;
+}
+.bar_left{
+    margin: 0% 1% 80px 0%;
+}
+.bar_right{
+    margin: 0% 0% 80px 1%;
+}
+/*物块叠加显示级别 英文从低到高*/
+.level_first{
+    position: relative;
+    z-index: 1
+}
+.level_second{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    /*margin: 0px 47%;*/
+    position: relative;
+    z-index: 2
+}
+/*大部分外层div的边距大小设定*/
+.out_div{
+    width: 73%;
+    margin: 20px 13.5% 48px 13.5%;
+}
+/*搜索框下方div*/
+.little_div{
+    top: 0px;
+    width: 73%;
+    height: 324px;
+    margin: 0% 13.5%;
+}
+/*搜索框*/
+.el-input__suffix-inner .search_button{
+    font-size: 33px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 80px;
+}
+.bottom_search_squ{
+    position: absolute;
+    top: 23px;
+    right: 17px;
+    width: 36%;
+    height: 60px;
+}
+.bottom_search_squ .el-input__inner{
+    height: 60px;
+    line-height: 60px;
+    border: 0px;
+    border-radius: 30px;
+    background-color: #EEEEEE;
+}
+.bottom_search_squ .el-input__prefix, .el-input__suffix{
+    color: #999999;
+}
+.search_button{
+    width: 80px;
+    text-align: center;
+}
+
+
+/*天数选择按钮区域*/
+.resource_day_button{
+    line-height: 550px;
+    text-align: center;
+    width: 100%
+}
+.resource_button_div{
+    width: 33%;
+    float: left
+}
+.resource_button_div button{
+    width: 60%;
+    height: 46px;
+    border-radius: 23px;
+    border-color: #001594;
+    color: #001594;
+    padding: 0px;
+}
+.resource_day_button button:hover{
+    color: white;
+    background: #001594;
+}
+.resource_day_button button:focus{
+    color: white;
+    background: #001594;
+}
