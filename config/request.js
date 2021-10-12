@@ -2,9 +2,10 @@ import axios from "axios";
 import { Message } from "element-ui";
 
 // const baseURL = "http://192.168.0.32:9094/";
-const baseURL = "http://47.241.183.80:10001/";
+// const baseURL = "http://47.241.183.80:10001/";
 // const baseURL = "https://www.hnicae.com/";
 // const baseURL = "http://localhost:8082/";
+const baseURL = "https://scan.adamoracle.io/";
 // create an axios instance
 const service = axios.create({
   baseURL: baseURL // url = base url + request url
