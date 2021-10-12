@@ -34,9 +34,12 @@
     import {
         getAllPledgeInfo,
         getNodeCount,
-        getProfitCount,
+        // getProfitCount,
         getSortList
     } from "@/api/home/api";
+    
+    import * as wallet from "@/api/web3";
+
     import Utils from "@/utils/js/transferStation";
 
     export default {
@@ -108,7 +111,7 @@
                 ).catch(()=>{
                 })
             },
-            getList(address,name){
+            async getList(address,name){
                 var params = {
                     currentPage: this.currentPage.toString(),
                     pageSize: this.pageSize.toString(),
@@ -117,69 +120,87 @@
                 };
                 //由于push数据的原因，因此，每次查询前需要清空数据
                 this.allData = []
-                getSortList(params).then(
-                    res => {
-                        if(res != undefined && res.errorCode === 1000) {
-                            var data = res.content.rows
-                            for (var i = 0; i < data.length; i++) {
-                                var item = data[i]
-                                var param = {
-                                    address: item.address,
-                                }
-                                this.getNodeCount(param,item)
-                            }
-                            //手动计算
-                            this.total = res.content.count
-                        }else{
-                            this.$message({
-                                message: res.message,
-                                type: 'error'
-                            });
-                        }
-                    }
-                ).catch(()=>{
-                })
+                let res = await getSortList(params)
+                console.log('list', res)
+                if(res == undefined || res.errorCode != 1000) {
+                    this.$message({ message: res.message, type: 'error' });
+                    return
+                }
+                // 总条目数
+                this.total = res.content.count
+
+                console.log('res.content.count:', res.content.count)
+                var list = res.content.rows
+                for (var i = 0; i < list.length; i++) {
+                    var item = list[i]
+                    
+                    const { address } = item 
+// { 
+                    const res = await getNodeCount({address}) 
+                    const nodeNum = res.content // 节点数
+
+                    const profit_info = await wallet.getUserProfitInfo(address)
+                    const { profit } = profit_info; // 产币量
+
+                    const userinfo = await wallet.getUserInfo(address);
+                    const pledgePower = userinfo.pledgePower; //当前算力
+
+                    const total_power = await wallet.getTotalNetworkPower();  // 全网算力
+
+                    const poolname = await wallet.getPoolName(address);
+
+                    const percentage = pledgePower / total_power // 算力占比
+
+                    item.percentage = percentage
+                    item.nodeNum = nodeNum
+                    item.totalAdam = wallet.formatNum(profit, 8, 4); 
+                    item.pool_name = poolname
+
+                    console.log('item', item, total_power , pledgePower)
+ 
+                    this.allData.push(item)
+                }
             },
-            getProfitCount(param,item){
-                getProfitCount(param).then(
-                    res => {
-                        if(res != undefined && res.content != 0 && res.errorCode === 1000){
-                            item.totalAdam = res.content.count
-                        }else{
-                            item.totalAdam = "-"
-                        }
-                        //计算算力比
-                        if(this.totalPledge != 0){
-                            item.percentage = item.total_power / this.totalPledge
-                        }else{
-                            item.percentage = "-"
-                        }
-                        this.allData.push(item)
-                    }
-                ).catch(
-                    () => {
-                        item.totalAdam = "-"
-                        this.getProfitCount(param,item)
-                    }
-                )
-            },
-            getNodeCount(param,item){
-                getNodeCount(param).then(
-                    res => {
-                        if(res != undefined && res.errorCode === 1000){
-                            item.nodeNum = res.content
-                        }else{
-                            item.nodeNum = "-"
-                        }
-                        this.getProfitCount(param,item)
-                    }
-                ).catch(
-                    () => {
-                        item.nodeNum = "-"
-                        this.getProfitCount(param,item)
-                    }
-                )
-            },
+            // getProfitCount(param,item){
+            //     getProfitCount(param).then(
+            //         res => {
+            //             if(res != undefined && res.content != 0 && res.errorCode === 1000){
+            //                 item.totalAdam = res.content.count
+            //             }else{
+            //                 item.totalAdam = "-"
+            //             }
+            //             //计算算力比
+            //             if(this.totalPledge != 0){
+            //                 item.percentage = item.total_power / this.totalPledge
+            //             }else{
+            //                 item.percentage = "-"
+            //             }
+            //             this.allData.push(item)
+            //         }
+            //     ).catch(
+            //         () => {
+            //             item.totalAdam = "-"
+            //             this.getProfitCount(param,item)
+            //         }
+            //     )
+            // },
+            // getNodeCount(param,item){
+            //     getNodeCount(param).then(
+            //         res => {
+            //             if(res != undefined && res.errorCode === 1000){
+            //                 item.nodeNum = res.content
+            //             }else{
+            //                 item.nodeNum = "-"
+            //             }
+            //             this.getProfitCount(param,item)
+            //         }
+            //     ).catch(
+            //         () => {
+            //             item.nodeNum = "-"
+            //             this.getProfitCount(param,item)
+            //         }
+            //     )
+            // },
             // eslint-disable-next-line no-unused-vars
             formatterPre: function(row,column){
                 return this.showValue(row.totalAdam)

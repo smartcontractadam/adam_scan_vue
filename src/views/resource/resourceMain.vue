@@ -175,6 +175,10 @@
         getMinerNodeCount,
         getMinerSortList,
     } from "@/api/home/api";
+
+    
+    import * as wallet from "@/api/web3";
+
     export default {
         name: "resourceMain",
         components: {
@@ -307,10 +311,33 @@
                 //传递搜索参数
                 this.$refs.pageListData.queryPageList(this.address=="No Data"?"":this.address,this.input)
             },
-            headerData(){
+            async headerData(){
                 var param = {
                     address: this.address
                 }
+
+
+                const userinfo = await wallet.getUserInfo(this.address); 
+                this.dataList.two = userinfo.pledgePower // 当前算力
+
+                const total_power = await wallet.getTotalNetworkPower(); // 全网算力
+                 const total_adam = await wallet.getTotalAmounts(); // 
+
+                const userProfitInfo = await wallet.getUserProfitInfo(this.address);
+                const { release, release_xssf, lock } = userProfitInfo; //产币量 、释放量、每天释放量、锁仓量
+
+                const poolname = await wallet.getPoolName(this.address);
+
+                var pie_params = {
+                    adam: wallet.formatNum(total_adam, 8, 4), // wallet.formatNum(total_adam) ,
+                    lock: wallet.formatNum(lock, 8, 4) ,
+                    pool_name: poolname,
+                    power: userinfo.pledgePower,
+                    release: wallet.formatNum(release , 8, 4) + wallet.formatNum(release_xssf , 8, 4) ,
+                    total_power: total_power,
+                }
+                // console.log(release + release_xssf, release ,release_xssf)
+
                 getAccDetailInfo(param).then(
                     res => {
                         if(res != undefined && res.errorCode == 1000){
@@ -318,11 +345,14 @@
                             //获取子节点个数
                             this.getSortList("",this.address)
                             //当前算力
-                            this.dataList.two = res.content.power
+                            // this.dataList.two = res.content.power
+
                             //排名
                             this.dataList.three = res.content.sort
+                            
+                            pie_params.sort = res.content.sort
                             //根据参数更新饼状图信息
-                            this.pieEcharts(res.content)
+                            this.pieEcharts(pie_params)
                         }else{
                             this.address = "No Data"
                             this.poolName = "No Data"
@@ -377,6 +407,9 @@
                 //显示加载动画
                 pieLeft.showLoading();
                 pieRight.showLoading();
+
+
+                console.log('params::', params)
 
                 //初始化饼图数据
                 this.initBarData(params);
