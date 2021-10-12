@@ -10,7 +10,7 @@ import Resource from "@/api/resource/router"
 Vue.use(Router)
 
 var config = {
-    mode: 'history',
+    mode: 'hash',
     routes: []
 };
 

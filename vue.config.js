@@ -4,7 +4,7 @@ module.exports = {
         proxy: {
             '/api': {
                 // target:'http://39.104.78.79', // 代理地址
-                target: 'https://scan.adamoracle.io:10001',
+                target: 'https://scan.adamoracle.io',
                 ws: false,
                 changeOrigin: true,
                 pathRewrite: {
